@@ -18,7 +18,7 @@ suite('Unit Tests', function () {
     test('#isOk, #isNotOk', function () {
       assert.isNotOk(null, 'null is falsey');
       assert.isOk("I'm truthy", 'A string is truthy');
-      assert.isNotOk(true, 'true is truthy');
+      assert.isOk(true, 'true is truthy');
     });
     // #4
     test('#isTrue, #isNotTrue', function () {
@@ -33,10 +33,10 @@ suite('Unit Tests', function () {
   suite('Equality', function () {
     // #5
     test('#equal, #notEqual', function () {
-      assert.equal(12, '12', 'Numbers are coerced into strings with ==');
+      assert.equal(12, '12', 'numbers are coerced into strings with == ');
       assert.notEqual({ value: 1 }, { value: 1 }, '== compares object references');
-      assert.equal(6 * '2', '12');
-      assert.equal(6 + '2', '12');
+      assert.equal(6 * '2', '12', 'no more hints...');
+      assert.notEqual(6 + '2', '12', 'type your error message if you want');
     });
     // #6
     test('#strictEqual, #notStrictEqual', function () {
@@ -61,22 +61,22 @@ suite('Unit Tests', function () {
   suite('Comparisons', function () {
     // #8
     test('#isAbove, #isAtMost', function () {
-      assert.isAbove('hello'.length, 5);
+      assert.isAtMost('hello'.length, 5);
       assert.isAbove(1, 0);
       assert.isAbove(Math.PI, 3);
       assert.isAtMost(1 - Math.random(), 1);
     });
     // #9
     test('#isBelow, #isAtLeast', function () {
-      assert.isBelow('world'.length, 5);
+      assert.isAtLeast('world'.length, 5);
       assert.isAtLeast(2 * Math.random(), 0);
       assert.isBelow(5 % 2, 2);
       assert.isBelow(2 / 3, 1);
     });
     // #10
     test('#approximately', function () {
-      assert.approximately(weirdNumbers(0.5), 1, 0);
-      assert.approximately(weirdNumbers(0.2), 1, 0);
+      assert.approximately(weirdNumbers(0.5), 1, /*edit this*/ 0.5);
+      assert.approximately(weirdNumbers(0.2), 1, /*edit this*/ 0.8);
     });
   });
 
@@ -105,9 +105,9 @@ suite('Unit Tests', function () {
   suite('Strings', function () {
     // #13
     test('#isString, #isNotString', function () {
-      assert.isString(Math.sin(Math.PI / 4), 'A float is not a string');
+      assert.isNotString(Math.sin(Math.PI / 4), 'A float is not a string');
       assert.isString(process.env.PATH, 'An env variable is a string (or undefined)');
-      assert.isNotString(JSON.stringify({ type: 'object' }), 'JSON is a string');
+      assert.isString(JSON.stringify({ type: 'object' }), 'JSON is a string');
     });
     // #14
     test('String #include, #notInclude', function () {
@@ -164,5 +164,4 @@ suite('Unit Tests', function () {
     });
   });
 
-  // -----------------------------------------------------------------------------
 });
