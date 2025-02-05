@@ -77,9 +77,11 @@ suite('Functional Tests', function () {
 
   suite('Functional Tests with Zombie.js', function () {
     this.timeout(5000);
-    suiteSetup(function (done) { browser.visit('/', done); });
-    Browser.site = 'https://3ac731a6-3420-4d3e-    b85a-931afcf31dea-00-1lc4tvrx1ir1o.janeway.replit.dev/';
+    suiteSetup(function (done) { 
+      browser.visit('/', done); 
+    });
     const browser = new Browser();
+    Browser.site = '0.0.0.0:3000';
 
     suite('"Famous Italian Explorers" form', function () {
       // #5
