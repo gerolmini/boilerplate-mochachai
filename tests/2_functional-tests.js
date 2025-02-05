@@ -105,8 +105,6 @@ suite('Functional Tests', function () {
           });
         });
       });
-
     });
   });
-
 });  
