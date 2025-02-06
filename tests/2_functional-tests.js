@@ -80,8 +80,13 @@ suite('Functional Tests', function () {
     suiteSetup(function (done) { 
       browser.visit('/', done); 
     });
+       suite('Headless browser', function () {
+      test('should have a working "site" property', function() {
+        assert.isNotNull(browser.site);
+      });
+    });
+    Browser.site = 'http://localhost:3000';
     const browser = new Browser();
-    Browser.site = '0.0.0.0:3000';
 
     suite('"Famous Italian Explorers" form', function () {
       // #5
